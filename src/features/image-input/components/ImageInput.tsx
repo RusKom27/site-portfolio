@@ -1,7 +1,7 @@
 import React, {FC, FormEventHandler, ReactNode, useState} from 'react';
 import {Input, InputProps} from "@chakra-ui/input";
 import {Image} from "@chakra-ui/image";
-import {Box, Center, Text} from "@chakra-ui/react";
+import {Box, Center} from "@chakra-ui/react";
 
 
 interface Props {

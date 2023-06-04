@@ -1,6 +1,5 @@
 import React from "react";
 import { Inter } from 'next/font/google';
-import {ChakraProvider} from "@chakra-ui/react";
 
 import './globals.css';
 

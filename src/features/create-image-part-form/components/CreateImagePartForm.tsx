@@ -2,7 +2,6 @@
 import * as React from 'react';
 import {FC} from "react";
 import {CreatePostPartForm, PostPartProps} from "@/features/create-post-part-form";
-import {Input} from "@chakra-ui/input";
 import {ImageInput} from "@/features/image-input";
 
 type Props = {

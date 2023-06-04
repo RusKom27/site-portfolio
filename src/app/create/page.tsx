@@ -1,8 +1,8 @@
 "use client";
 
 import React, {FC} from 'react';
-import {ChakraProvider, Container, Divider, Heading, Text} from "@chakra-ui/react";
-import {CreatePostTitle} from "@/widgets/create-post-title";
+import {ChakraProvider, Container} from "@chakra-ui/react";
+
 
 interface PageProps {
 
