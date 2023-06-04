@@ -1,12 +1,9 @@
 // @flow
 import * as React from 'react';
-import {FC, ReactNode} from "react";
+import {FC} from "react";
 import {Button, HStack, VStack} from "@chakra-ui/react";
+import {PostPartProps} from "@/features/create-post-part-form";
 
-export interface PostPartProps {
-    onCancel: () => void
-    children?: ReactNode
-}
 export const CreatePostPartForm: FC<PostPartProps> = ({onCancel, children}) => {
     return (
         <form action={""} onSubmit={(event) => {
