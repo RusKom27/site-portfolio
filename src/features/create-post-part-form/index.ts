@@ -1,2 +1,2 @@
 export {CreatePostPartForm} from "./components/CreatePostPartForm";
-export {PostPartProps} from "./types/PostPartProps";
+export type {PostPartProps} from "./types/PostPartProps";
