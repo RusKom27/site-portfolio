@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type PostPart {
+  type  String
+  text  String
+  image String
+}
+
+type PostTag {
+  name String
+}
+
+model post {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int        @default(0) @map("__v")
+  title       String     @db.String
+  cover_image String     @db.String
+  topic       String     @db.String
+  tags        PostTag[]
+  parts       PostPart[]
+  createdAt   DateTime?  @default(now()) @db.Date
+  updatedAt   DateTime?  @updatedAt @db.Date
+}
