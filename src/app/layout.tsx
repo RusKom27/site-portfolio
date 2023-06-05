@@ -1,9 +1,9 @@
 import React from "react";
-import { Inter } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 
 import './globals.css';
 
-const inter = Inter({weight: "400" });
+const inter = JetBrains_Mono({subsets: ["latin"] });
 
 export const metadata = {
     title: 'Ruslan Zhurnyy',
