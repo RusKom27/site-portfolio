@@ -1,7 +1,7 @@
 "use client";
 
 import React, {FC} from 'react';
-import {Box, ChakraProvider, Container, HStack, Text, VStack} from "@chakra-ui/react";
+import {ChakraProvider, HStack, Text, VStack} from "@chakra-ui/react";
 import {Prisma} from "@prisma/client";
 import Link from "next/link";
 
