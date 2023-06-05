@@ -10,7 +10,15 @@ interface Props {
     width?: string | number
 }
 
-const ImageInput: FC<InputProps & Props> = ({label, height = "200px", width = "200px", id, ...props}) => {
+const ImageInput: FC<InputProps & Props> = (
+    {
+        label,
+        height = "200px",
+        width = "200px",
+        id,
+        src,
+        ...props
+    }) => {
     const [imageFile, setImageFile] = useState<File | null>(null);
     const onInput: FormEventHandler<HTMLInputElement> = (event) => {
         const files = event.currentTarget.files;
@@ -24,13 +32,13 @@ const ImageInput: FC<InputProps & Props> = ({label, height = "200px", width = "2
 
                 <Box w={width} h={height} cursor={"pointer"} borderWidth={2} borderStyle={"dashed"}>
                     <Center w={"100%"} h={"100%"}>
-                        {!imageFile && <Box position={"absolute"} textAlign={"center"}>
+                        {(!imageFile && !src)  && <Box position={"absolute"} textAlign={"center"}>
                             { label }
                         </Box>}
-                        {imageFile && <Image
+                        {(imageFile || src) && <Image
                             height={"100%"}
                             objectFit={"contain"}
-                            src={URL.createObjectURL(imageFile)}
+                            src={imageFile ? URL.createObjectURL(imageFile) : src}
                             alt={"preview"}
                         />}
                     </Center>

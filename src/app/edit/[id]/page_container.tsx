@@ -4,16 +4,17 @@ import React, {FC} from 'react';
 import {ChakraProvider, Container, Divider, Heading, Text} from "@chakra-ui/react";
 import {CreatePostPart} from "../../../widgets/create-post-part";
 import {CreatePostTitle} from "@/widgets/create-post-title";
+import {Prisma} from "@prisma/client";
 
-interface PageProps {
-
+interface PageContainerProps {
+    post: Prisma.postCreateInput,
 }
 
-const Page: FC<PageProps> = () => {
+const PageContainer: FC<PageContainerProps> = ({post}) => {
     return (
         <ChakraProvider>
             <Container>
-                <CreatePostTitle/>
+                <CreatePostTitle post={post}/>
                 <Divider orientation={"horizontal"} marginBlock={4}/>
                 <Heading>
                     qewrgqe wergw ergwe ergwerg
@@ -28,4 +29,4 @@ const Page: FC<PageProps> = () => {
     );
 };
 
-export default Page;
+export default PageContainer;
