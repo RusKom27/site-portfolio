@@ -1,20 +1,14 @@
-import React, {FC, FormEventHandler, ReactNode, useState} from 'react';
-import {Input, InputProps} from "@chakra-ui/input";
-import {Image} from "@chakra-ui/image";
-import {Box, Center} from "@chakra-ui/react";
+"use client";
+import React, {FC, FormEventHandler, InputHTMLAttributes, ReactNode, useState} from 'react';
 
 
 interface Props {
     label: ReactNode
-    height?: string | number
-    width?: string | number
 }
 
-const ImageInput: FC<InputProps & Props> = (
+const ImageInput: FC<InputHTMLAttributes<HTMLInputElement> & Props> = (
     {
         label,
-        height = "200px",
-        width = "200px",
         id,
         src,
         ...props
@@ -26,30 +20,29 @@ const ImageInput: FC<InputProps & Props> = (
     };
 
     return (
-        <div>
-
+        <div className={"w-[250px] h-[250px]"}>
             <label htmlFor={id}>
-
-                <Box w={width} h={height} cursor={"pointer"} borderWidth={2} borderStyle={"dashed"}>
-                    <Center w={"100%"} h={"100%"}>
-                        {(!imageFile && !src)  && <Box position={"absolute"} textAlign={"center"}>
-                            { label }
-                        </Box>}
-                        {(imageFile || src) && <Image
-                            height={"100%"}
-                            objectFit={"contain"}
-                            src={imageFile ? URL.createObjectURL(imageFile) : src}
+                <div className={"cursor-pointer border-2 border-dashed w-full h-full"}>
+                    <div className={"relative content-center w-full h-full"}>
+                        {(!imageFile && !src)  &&
+                            <div className={"absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"}>
+                                { label }
+                            </div>
+                        }
+                        {(imageFile || src) && <img
+                            className={"w-full h-full object-contain"}
+                            src={imageFile ? URL.createObjectURL(imageFile) : src as string}
                             alt={"preview"}
                         />}
-                    </Center>
+                    </div>
 
-                </Box>
+                </div>
             </label>
-            <Input
+            <input
                 {...props}
+                className={"hidden"}
                 onInput={onInput}
                 id={id}
-                display={"none"}
                 type={"file"}
                 accept={"image/*"}
             />

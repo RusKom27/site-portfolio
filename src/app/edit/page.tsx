@@ -11,6 +11,7 @@ const Page = async () => {
     if (!posts) return <NoopLoader/>;
 
     return (
+
         <PostList posts={posts}/>
     );
 };

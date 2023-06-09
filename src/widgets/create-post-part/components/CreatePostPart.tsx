@@ -1,11 +1,8 @@
 "use client";
 import React, {ReactNode, useState} from "react";
-import {HStack, VStack} from "@chakra-ui/react";
-import {Button} from "@chakra-ui/react";
-import {AddIcon} from "@chakra-ui/icons";
-import {CreateHeaderPartForm} from "@/features/create-header-part-form";
-import {CreateTextPartForm} from "@/features/create-text-part-form";
-import {CreateImagePartForm} from "@/features/create-image-part-form";
+import {CreateHeaderPartForm, CreateTextPartForm, CreateImagePartForm} from "@/features";
+import {Button} from "@/shared/ui";
+import {PlusIcon} from "@heroicons/react/24/solid";
 
 const CreatePostPart = () => {
     const [selectedPart, selectPart] = useState<ReactNode | null>(null);
@@ -17,43 +14,31 @@ const CreatePostPart = () => {
             {selectedPart &&
                 selectedPart
             }
-            {!selectedPart && <HStack gap={8} align={"stretch"} justifyContent={"stretch"}>
-                <Button
-                    onClick={() => selectPart(<CreateHeaderPartForm onCancel={cancelPart}/>)}
-                    flex={2} type={"submit"}
-                    paddingBlock={8}
-                    variant={"outline"}
-                >
-                    <VStack>
-                        <AddIcon/>
+            {!selectedPart &&
+                <div className={"flex max-h-[100px] w-1/2 mx-auto justify-stretch items-stretch gap-2"} >
+                    <Button className={"flex-1"}
+                        onClick={() => selectPart(<CreateHeaderPartForm onCancel={cancelPart}/>)}
+                        type={"submit"}
+                    >
+                        <PlusIcon/>
                         <p>Header</p>
-                    </VStack>
-                </Button>
-                <Button
-                    onClick={() => selectPart(<CreateTextPartForm onCancel={cancelPart}/>)}
-                    flex={2}
-                    type={"submit"}
-                    paddingBlock={8}
-                    variant={"outline"}
-                >
-                    <VStack>
-                        <AddIcon/>
+                    </Button>
+                    <Button className={"flex-1"}
+                        onClick={() => selectPart(<CreateTextPartForm onCancel={cancelPart}/>)}
+                        type={"submit"}
+                    >
+                        <PlusIcon/>
                         <p>Text</p>
-                    </VStack>
-                </Button>
-                <Button
-                    onClick={() => selectPart(<CreateImagePartForm onCancel={cancelPart}/>)}
-                    flex={2}
-                    type={"submit"}
-                    paddingBlock={8}
-                    variant={"outline"}
-                >
-                    <VStack>
-                        <AddIcon/>
+                    </Button>
+                    <Button className={"flex-1"}
+                        onClick={() => selectPart(<CreateImagePartForm onCancel={cancelPart}/>)}
+                        type={"submit"}
+                    >
+                        <PlusIcon/>
                         <p>Image</p>
-                    </VStack>
-                </Button>
-            </HStack>}
+                    </Button>
+                </div>
+            }
         </div>
 
     );

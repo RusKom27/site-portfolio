@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import {FC} from "react";
-import {Button, HStack, VStack} from "@chakra-ui/react";
 import {PostPartProps} from "@/features/create-post-part-form";
+import {Button} from "@/shared/ui";
 
 export const CreatePostPartForm: FC<PostPartProps> = ({onCancel, children}) => {
     return (
@@ -12,13 +12,13 @@ export const CreatePostPartForm: FC<PostPartProps> = ({onCancel, children}) => {
 
         }
         }>
-            <VStack>
+            <div className={"flex flex-col"}>
                 {children}
-                <HStack>
+                <div className={"flex flex-row"}>
                     <Button onClick={onCancel}>Cancel</Button>
                     <Button type={"submit"}>Create</Button>
-                </HStack>
-            </VStack>
+                </div>
+            </div>
         </form>
     );
 };

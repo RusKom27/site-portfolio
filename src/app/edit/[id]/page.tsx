@@ -2,7 +2,8 @@ import React, {FC} from 'react';
 import {Metadata} from "next";
 import {getPost} from "@/shared/lib/prisma/post";
 import NoopLoader from "next/dist/build/webpack/loaders/noop-loader";
-import PageContainer from "@/app/edit/[id]/page_container";
+import {CreatePostPart, CreatePostTitle} from "@/widgets";
+import {HeadText} from "@/shared/ui";
 
 type PageProps = {
     params: {
@@ -26,7 +27,20 @@ const Page: FC<PageProps> = async ({params: {id}}) => {
 
     if (!post) return <NoopLoader/>;
 
-    return <PageContainer post={post}/>;
+    return (
+        <div className="mx-auto lg:w-2/3">
+            <CreatePostTitle post={post}/>
+            <hr/>
+            <HeadText>
+                qewrgqe wergw ergwe ergwerg
+            </HeadText>
+            <p>
+                rgrgwerg fqgr ergwrg wergw reger
+            </p>
+            <hr />
+            <CreatePostPart/>
+        </div>
+    );
 };
 
 export default Page;
