@@ -2,7 +2,7 @@
 
 import React, {FC} from 'react';
 import {Prisma} from "@prisma/client";
-import Link from "next/link";
+import {Button} from "@/shared/ui";
 
 
 interface PostListProps {
@@ -10,17 +10,34 @@ interface PostListProps {
 }
 
 const PostList: FC<PostListProps> = ({posts}) => {
+
+    const deletePost = (post: Prisma.postCreateInput) => {
+        fetch(`/api/posts/${ post.id }`, {
+            "method": "DELETE",
+        }).then(()  => {});
+    };
+
     return (
-        <div className="">
-            {posts.map(post =>
-                <a href={`edit/${post.id}`} key={post.id}>
-                    <div className={"flex flex-start"} >
-                        <p>{post.title}</p>
-                        <p>{post.topic}</p>
-                    </div>
-                </a>
-            )}
-        </div>
+        <table>
+            <thead className={"border-2 border-gray-400"}>
+                <tr className={"bg-gray-300"}>
+                    <th>Title</th>
+                    <th>Topic</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {posts.map(post =>
+                    <tr key={post.id} className={"border-2 border-gray-400 bg-gray-300 hover:bg-gray-400"}>
+                        <td className={"px-5"}>{post.title}</td>
+                        <td className={"px-5"}>{post.topic}</td>
+                        <td className={"px-5"}><Button><a href={`edit/${post.id}`}>Edit</a></Button></td>
+                        <td className={"px-5"} onClick={() => deletePost(post)}><Button>Delete</Button></td>
+                    </tr>
+                )}
+            </tbody>
+        </table>
     );
 };
 

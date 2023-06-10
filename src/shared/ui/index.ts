@@ -4,3 +4,4 @@ export {Input} from "./input";
 export {Select} from "./select";
 export {Option} from "./option";
 export {HeadText} from "./head-text";
+export {Tag} from "./tag";

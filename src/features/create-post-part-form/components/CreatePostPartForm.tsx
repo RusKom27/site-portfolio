@@ -9,7 +9,6 @@ export const CreatePostPartForm: FC<PostPartProps> = ({onCancel, children}) => {
         <form action={""} onSubmit={(event) => {
             event.preventDefault();
             console.log(event);
-
         }
         }>
             <div className={"flex flex-col"}>

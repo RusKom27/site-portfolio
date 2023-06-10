@@ -18,21 +18,21 @@ const CreatePostPart = () => {
                 <div className={"flex max-h-[100px] w-1/2 mx-auto justify-stretch items-stretch gap-2"} >
                     <Button className={"flex-1"}
                         onClick={() => selectPart(<CreateHeaderPartForm onCancel={cancelPart}/>)}
-                        type={"submit"}
+                        type={"button"}
                     >
                         <PlusIcon/>
                         <p>Header</p>
                     </Button>
                     <Button className={"flex-1"}
                         onClick={() => selectPart(<CreateTextPartForm onCancel={cancelPart}/>)}
-                        type={"submit"}
+                        type={"button"}
                     >
                         <PlusIcon/>
                         <p>Text</p>
                     </Button>
                     <Button className={"flex-1"}
                         onClick={() => selectPart(<CreateImagePartForm onCancel={cancelPart}/>)}
-                        type={"submit"}
+                        type={"button"}
                     >
                         <PlusIcon/>
                         <p>Image</p>
